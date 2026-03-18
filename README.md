@@ -32,7 +32,16 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [tesla-stock-price-prediction](https://github.com/farheenfathimaa/tesla-stock-price-prediction) | End-to-end TSLA stock forecasting using RNN, LSTM, and Stacked LSTM with technical indicator engineering (RSI, MACD, Bollinger Bands). Multi-horizon forecasting (1/5/10-day) with interactive Streamlit dashboard. | Python, TensorFlow, LSTM, Streamlit, Plotly | Mar 2026 |
 | [flipkartProject-CSATScore](https://github.com/farheenfathimaa/flipkartProject-CSATScore) | Customer satisfaction score prediction and analysis for e-commerce using ML models. | Python, Jupyter, Scikit-Learn | Mar 2026 |
+
+---
+
+## 🌐 Full Stack & Web Apps
+
+| Project | Description | Stack | Date |
+|--------|-------------|-------|------|
+| [job-application-tracker](https://github.com/farheenfathimaa/job-application-tracker) | High-performance job application tracker with full CRUD lifecycle management, instant search/filter, and dark mode UI. Includes >80% unit test coverage, OpenAPI/Swagger docs, and one-command Docker setup. | Spring Boot 3, Java 21, React, PostgreSQL, Docker | Mar 2026 |
 
 ---
 
