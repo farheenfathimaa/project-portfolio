@@ -45,6 +45,14 @@
 
 ---
 
+## 📈 Data Analytics & Business Intelligence
+
+| Project | Description | Stack | Date |
+|--------|-------------|-------|------|
+| [NovaDash](https://github.com/farheenfathimaa/NovaDash) | End-to-end retail sales analytics for a fictional 3-year dataset. Covers KPI development, YoY revenue tracking, discount impact analysis, and regional performance. Delivers 5 dashboards across all three major BI tools. Key findings: Q4 drives 35% of annual revenue; 10%+ discounts cannibalize margins without volume gains. | Excel, Tableau, Power BI, DAX | Mar 2026 |
+
+---
+
 ## 🧰 Tech Stack
 
 **LLM & GenAI:** LangChain · OpenAI API · Anthropic Claude API · Groq · Gemini · FAISS · RAG · Prompt Engineering · HuggingFace Transformers · BERT
