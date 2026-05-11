@@ -23,6 +23,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [aws-infra-bootstrap](https://github.com/farheenfathimaa/aws-infra-bootstrap) | Production-ready AWS infrastructure provisioned with modular Terraform — VPC (public/private subnets), ECS Fargate cluster, RDS PostgreSQL (private subnet), S3 with encryption, and CloudWatch logging. CI/CD via GitHub Actions: `terraform plan` on PRs, `terraform apply` on merge to main. Remote state managed in S3. | Terraform, AWS (ECS · RDS · S3 · VPC), GitHub Actions, Docker | May 2026 |
 | [semantic-search-engine](https://github.com/farheenfathimaa/semantic-search-engine) | Semantic search with sub-second retrieval; tested across 1,000+ query-document pairs using precision@k, recall@k, and MRR. Production-ready REST API via FastAPI with <200ms response times. | FastAPI, Sentence Transformers, FAISS, Docker | Jul 2025 |
 | [log_analytics_project](https://github.com/farheenfathimaa/log_analytics_project) | 3-node ELK stack on Kubernetes handling 100K+ daily log entries with auto-scaling and zero-downtime rolling updates via GitHub Actions CI/CD. Automated log classification achieving 92% anomaly detection accuracy. | Kubernetes, Docker, ELK Stack, CI/CD | Jun 2025 |
 
@@ -32,6 +33,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [phonepe-project](https://github.com/farheenfathimaa/phonepe-project) | End-to-end data science pipeline on India's PhonePe Pulse dataset — automated JSON ETL into 9 normalized MySQL tables, 20+ EDA visualizations uncovering regional payment patterns, and XGBoost/Random Forest models predicting transaction volumes (R² ~0.97). Delivered via interactive multi-page Streamlit dashboard. | Python, XGBoost, MySQL, Streamlit, Plotly, Pandas | May 2026 |
 | [real-estate-investment-advisor](https://github.com/farheenfathimaa/real-estate-investment-advisor) | End-to-end ML pipeline for Indian housing market — predicts investment viability (classification) and future price trends (regression). Trains 6 models (Random Forest, XGBoost, Logistic Regression), tracks all experiments via MLflow, and serves results through a multi-page Streamlit dashboard with live EDA and model comparison. | Python, XGBoost, Scikit-Learn, MLflow, Streamlit, Pandas | Apr 2026 |
 | [mental-health-tech-eda](https://github.com/farheenfathimaa/mental-health-tech-eda) | Deep EDA on mental health in the tech workplace — 20+ visualizations (heatmaps, pairplots, stacked bars) uncovering treatment predictors. Key finding: family history + work interference are stronger indicators than age or gender. Includes stakeholder-ready PPTX report. | Python, Pandas, Matplotlib, Seaborn, Jupyter | Mar 2026 |
 | [tesla-stock-price-prediction](https://github.com/farheenfathimaa/tesla-stock-price-prediction) | End-to-end TSLA stock forecasting using RNN, LSTM, and Stacked LSTM with technical indicator engineering (RSI, MACD, Bollinger Bands). Multi-horizon forecasting (1/5/10-day) with interactive Streamlit dashboard. | Python, TensorFlow, LSTM, Streamlit, Plotly | Mar 2026 |
