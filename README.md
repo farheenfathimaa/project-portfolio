@@ -3,9 +3,9 @@
 > **AI/ML Engineer · LLM Applications · RAG Pipelines · MLOps**
 > Production-focused engineer with hands-on experience building end-to-end ML systems, multi-agent LLM frameworks, and scalable data pipelines.
 
-📧 farheennfathima@gmail.com &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/farheenfathimaa) &nbsp;|&nbsp; [HuggingFace](https://huggingface.co/farheenfathimaa) &nbsp;|&nbsp; [GitHub](https://github.com/farheenfathimaa)
+📧 farheennfathima@gmail.com &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/farheenfathimaa) &nbsp;|&nbsp; [HuggingFace](https://huggingface.co/farheenfathimaa) &nbsp;|&nbsp; [GitHub](https://github.com/farheenfathimaa) &nbsp;|&nbsp; [X](https://x.com/farheenfathima_) &nbsp;
 
----
+--
 
 ## 🤖 LLM, Agents & RAG
 
