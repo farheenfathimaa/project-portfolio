@@ -37,6 +37,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [regional-demand-forecast-geo](https://github.com/farheenfathimaa/regional-demand-forecast-geo) | End-to-end time-series forecasting pipeline on 387 US metros using Zillow ZHVI data. Benchmarks Statsmodels + Prophet vs pooled XGBoost (18-month test, MAPE 11.4% / 13.3% / 3.1% respectively). Geospatial choropleth via GeoPandas/Folium reveals East/West divide (+0.57 longitude correlation). SHAP explainability shows lag_1/lag_3 dominate over geography. Runs on Databricks. | Python, XGBoost, Prophet, GeoPandas, SHAP, Folium | Aug 2026 |
 | [intel_cv_mlops_pipeline](https://github.com/farheenfathimaa/intel_cv_mlops_pipeline) | Complete CV MLOps pipeline on the Intel Image Classification dataset (6 scene classes). Combines a Logistic Regression baseline (hand-crafted RGB + Canny edge features) with a custom 3-layer TensorFlow CNN (~77% accuracy). Served via FastAPI with dual `/predict/baseline` and `/predict/cnn` endpoints; validated with a pytest suite covering preprocessing, inference, and API endpoints. Dataset reconstructed from 8 split archives via Git. | Python, TensorFlow, Scikit-Learn, FastAPI, pytest, Jupyter | Jun 2026 |
 | [Image-Classification-Object-Detection-Pipeline](https://github.com/farheenfathimaa/Image-Classification-Object-Detection-Pipeline) | Production CV pipeline combining fine-tuned ResNet-50 (88.5% validation accuracy on 37-class Oxford Pet dataset) and YOLOv5s object detection. ResNet-50 exported to ONNX Runtime for optimized inference. Served via FastAPI with single image, batch (up to 8), and detection endpoints; ~15ms GPU latency. Model weights managed via Git LFS. | PyTorch, ONNX Runtime, YOLOv5, FastAPI, Torchvision | Jun 2026 |
 | [phonepe-project](https://github.com/farheenfathimaa/phonepe-project) | End-to-end data science pipeline on India's PhonePe Pulse dataset — automated JSON ETL into 9 normalized MySQL tables, 20+ EDA visualizations uncovering regional payment patterns, and XGBoost/Random Forest models predicting transaction volumes (R² ~0.97). Delivered via interactive multi-page Streamlit dashboard. | Python, XGBoost, MySQL, Streamlit, Plotly, Pandas | May 2026 |
@@ -51,7 +52,16 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [ai-ticket-triage-mern](https://github.com/farheenfathimaa/ai-ticket-triage-mern) | Full-stack MERN support-ticket triage tool with an embedded LangChain agent (Groq/OpenAI) that auto-classifies tickets by category + priority and drafts a suggested first response on creation. Graceful rule-based fallback ensures the pipeline never fails without an API key. JWT auth, 29 passing Jest tests (82.5% coverage), Nginx-proxied frontend, one-command Docker Compose deploy, GitHub Actions CI. | Node.js, Express, MongoDB, React, LangChain, Groq, Docker | Aug 2026 |
 | [job-application-tracker](https://github.com/farheenfathimaa/job-application-tracker) | High-performance job application tracker with full CRUD lifecycle management, instant search/filter, and dark mode UI. Includes >80% unit test coverage, OpenAPI/Swagger docs, and one-command Docker setup. | Spring Boot 3, Java 21, React, PostgreSQL, Docker | Mar 2026 |
+
+---
+
+## 🦀 Systems & Graph Engineering
+
+| Project | Description | Stack | Date |
+|--------|-------------|-------|------|
+| [rust-graphmind](https://github.com/farheenfathimaa/rust-graphmind) | Rust CLI + axum REST API for ingesting relational CSV data into Neo4j and querying it as a graph. Supports shortest-path traversal, degree centrality, and 1–2 hop relationship queries via Cypher. Batched idempotent ingestion (624 nodes, 1998 relationships). 4 integration tests via testcontainers spinning up a real Neo4j container. Fully Dockerized with docker-compose. | Rust, axum, Neo4j, Cypher, Docker | Aug 2026 |
 
 ---
 
