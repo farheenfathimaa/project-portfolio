@@ -5,7 +5,7 @@
 
 📧 farheennfathima@gmail.com &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/in/farheenfathimaa) &nbsp;|&nbsp; [HuggingFace](https://huggingface.co/farheenfathimaa) &nbsp;|&nbsp; [GitHub](https://github.com/farheenfathimaa) &nbsp;|&nbsp; [X](https://x.com/farheenfathima_) &nbsp;
 
---
+---
 
 ## 🤖 LLM, Agents & RAG
 
