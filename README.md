@@ -11,6 +11,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [litellm-guardrail-router](https://github.com/farheenfathimaa/litellm-guardrail-router) | FastAPI gateway routing LLM chat requests through LiteLLM with AWS Bedrock as primary provider and automatic multi-provider fallback (Groq/Gemini) when Bedrock is unavailable or rate-limited. Adds a regex-based guardrail layer for prompt-injection and system-prompt-leak detection on input/output without an extra LLM call, plus per-request token/cost logging broken down by which provider served it. Degrades cleanly to a zero-config demo on free API keys alone. | Python, FastAPI, LiteLLM, AWS Bedrock, Groq, Gemini | Sep 2026 |
 | [adk-cx-support-orchestrator](https://github.com/farheenfathimaa/adk-cx-support-orchestrator) | Multi-agent customer-support triage system built with Google ADK 2.0 and Gemini 3.5 Flash Lite. Orchestrates Sequential/Parallel/Loop/BaseAgent patterns: IntakePipeline (extract → classify) → conditional specialist fan-out (skipped at ≥0.6 confidence, saving ~60% LLM cost) → DraftCriticLoop (max 3 iterations with escalation path) → FinalAssembler. Grounded via MCP stdio server exposing KB search and CRM tools. 16 unit tests + live E2E verified. Deployable to Cloud Run or Vertex AI Agent Engine via one command. | Python, Google ADK 2.0, Gemini, FastAPI, MCP, Docker, GCP | Sep 2026 |
 | [legal-qa-lora-finetune](https://github.com/farheenfathimaa/legal-qa-lora-finetune) | LoRA fine-tuning of Mistral-7B on a legal Q&A instruction dataset using 4-bit NF4 quantization. Covers synthetic dataset generation, adapter training (rank=8, alpha=16 on q_proj/v_proj), MLflow experiment tracking with per-step loss curves, before/after ROUGE-L evaluation, and a FastAPI serving layer for the fine-tuned model. | Python, PyTorch, PEFT, Mistral-7B, MLflow, FastAPI | Jul 2026 |
 | [FinQA-SFT-Tuner](https://github.com/farheenfathimaa/FinQA-SFT-Tuner) | End-to-end LLM alignment framework for financial QA. Two-stage training: SFT with LoRA adapters (Qwen2.5-0.5B via LLaMA Factory) → DPO alignment using a custom reward model scoring semantic accuracy (Sentence Transformers) + conciseness penalty. Includes Streamlit evaluation dashboard with glassmorphic UI, side-by-side Base/SFT/DPO comparison, and Plotly response-length charts. Containerized with Docker Compose. | Python, PyTorch, PEFT, LLaMA Factory, DPO, Streamlit, Docker | Jul 2026 |
@@ -26,6 +27,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [multi-source-data-scout](https://github.com/farheenfathimaa/multi-source-data-scout) | Data-collection pipeline combining Playwright browser automation with direct API calls to pull from multiple sources, with automated source evaluation to vet feed quality before ingestion. Dedup/upsert ETL loads records into SQLite, and scheduled CI runs keep the pipeline running unattended — mirrors a real-world data-engineering source-vetting workflow. | Playwright, Python/Node, SQLite, GitHub Actions | Sep 2026 |
 | [pyspark-claims-anomaly-etl](https://github.com/farheenfathimaa/pyspark-claims-anomaly-etl) | Distributed ETL pipeline in PySpark processing 10M+ synthetic healthcare claims. Performs relational joins across 3 tables, window functions (rolling avg, running totals, patient ranking), and statistical anomaly detection (Z-score > 3.0 for billing fraud, payment ratio < 0.15 for underpayment). Outputs partitioned Parquet by state/claim_status. Includes a Pandas vs Spark benchmark — Pandas OOMs at 10M rows, PySpark completes in ~32s. | PySpark, Python, Pandas, Parquet, Faker | Jul 2026 |
 | [GCP_ML_Pipeline](https://github.com/farheenfathimaa/GCP_ML_Pipeline) | End-to-end MLOps pipeline on GCP: BigQuery data ingestion → Vertex AI Custom Training (RandomForest, logged via Vertex AI Experiments) → model upload to GCS → Kubeflow Pipeline orchestrating model registry, endpoint creation, and deployment → Vertex AI Model Monitoring for feature skew and prediction drift. CI/CD via GitHub Actions with Workload Identity Federation — builds Docker image to Artifact Registry and submits PipelineJob on push. | GCP, Vertex AI, BigQuery, Kubeflow Pipelines, Docker, GitHub Actions | Jun 2026 |
 | [aws-infra-bootstrap](https://github.com/farheenfathimaa/aws-infra-bootstrap) | Production-ready AWS infrastructure provisioned with modular Terraform — VPC (public/private subnets), ECS Fargate cluster, RDS PostgreSQL (private subnet), S3 with encryption, and CloudWatch logging. CI/CD via GitHub Actions: `terraform plan` on PRs, `terraform apply` on merge to main. Remote state managed in S3. | Terraform, AWS (ECS · RDS · S3 · VPC), GitHub Actions, Docker | May 2026 |
@@ -38,9 +40,11 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [resnet-edge-adversarial-eval](https://github.com/farheenfathimaa/resnet-edge-adversarial-eval) | Edge-deployment and adversarial-robustness study of a half-width ResNet-18 trained on FashionMNIST (CPU-only), simulating a Raspberry Pi/Jetson-class device. Quantizes to INT8 three ways (PyTorch FX static PTQ, ONNX Runtime dynamic and static) and benchmarks latency/on-disk size per variant. Evaluates FGSM/PGD-8 adversarial robustness across FP32 and INT8 models, including cross-model transfer attacks, and serves the quantized model via a FastAPI `/predict` endpoint. | Python, PyTorch, ONNX Runtime, FastAPI | Sep 2026 |
 | [regional-demand-forecast-geo](https://github.com/farheenfathimaa/regional-demand-forecast-geo) | End-to-end time-series forecasting pipeline on 387 US metros using Zillow ZHVI data. Benchmarks Statsmodels + Prophet vs pooled XGBoost (18-month test, MAPE 11.4% / 13.3% / 3.1% respectively). Geospatial choropleth via GeoPandas/Folium reveals East/West divide (+0.57 longitude correlation). SHAP explainability shows lag_1/lag_3 dominate over geography. Runs on Databricks. | Python, XGBoost, Prophet, GeoPandas, SHAP, Folium | Aug 2026 |
 | [intel_cv_mlops_pipeline](https://github.com/farheenfathimaa/intel_cv_mlops_pipeline) | Complete CV MLOps pipeline on the Intel Image Classification dataset (6 scene classes). Combines a Logistic Regression baseline (hand-crafted RGB + Canny edge features) with a custom 3-layer TensorFlow CNN (~77% accuracy). Served via FastAPI with dual `/predict/baseline` and `/predict/cnn` endpoints; validated with a pytest suite covering preprocessing, inference, and API endpoints. Dataset reconstructed from 8 split archives via Git. | Python, TensorFlow, Scikit-Learn, FastAPI, pytest, Jupyter | Jun 2026 |
 | [Image-Classification-Object-Detection-Pipeline](https://github.com/farheenfathimaa/Image-Classification-Object-Detection-Pipeline) | Production CV pipeline combining fine-tuned ResNet-50 (88.5% validation accuracy on 37-class Oxford Pet dataset) and YOLOv5s object detection. ResNet-50 exported to ONNX Runtime for optimized inference. Served via FastAPI with single image, batch (up to 8), and detection endpoints; ~15ms GPU latency. Model weights managed via Git LFS. | PyTorch, ONNX Runtime, YOLOv5, FastAPI, Torchvision | Jun 2026 |
+| [Tourism-Experience-Analytics-System](https://github.com/farheenfathimaa/Tourism-Experience-Analytics-System) | End-to-end tourism analytics app on transactional visit data across 1,698 attractions. Regression (Linear/Random Forest/XGBoost) predicts attraction ratings; classification (Random Forest/XGBoost/LightGBM) predicts visit-mode segments (Solo/Couples/Family/Business/Friends); a hybrid recommender combines user-user collaborative filtering with content-based similarity. Delivered via a 4-page Streamlit dashboard (EDA, visit-mode predictor, rating predictor, recommender). | Python, Scikit-Learn, XGBoost, LightGBM, Streamlit, Pandas | May 2026 |
 | [phonepe-project](https://github.com/farheenfathimaa/phonepe-project) | End-to-end data science pipeline on India's PhonePe Pulse dataset — automated JSON ETL into 9 normalized MySQL tables, 20+ EDA visualizations uncovering regional payment patterns, and XGBoost/Random Forest models predicting transaction volumes (R² ~0.97). Delivered via interactive multi-page Streamlit dashboard. | Python, XGBoost, MySQL, Streamlit, Plotly, Pandas | May 2026 |
 | [real-estate-investment-advisor](https://github.com/farheenfathimaa/real-estate-investment-advisor) | End-to-end ML pipeline for Indian housing market — predicts investment viability (classification) and future price trends (regression). Trains 6 models (Random Forest, XGBoost, Logistic Regression), tracks all experiments via MLflow, and serves results through a multi-page Streamlit dashboard with live EDA and model comparison. | Python, XGBoost, Scikit-Learn, MLflow, Streamlit, Pandas | Apr 2026 |
 | [mental-health-tech-eda](https://github.com/farheenfathimaa/mental-health-tech-eda) | Deep EDA on mental health in the tech workplace — 20+ visualizations (heatmaps, pairplots, stacked bars) uncovering treatment predictors. Key finding: family history + work interference are stronger indicators than age or gender. Includes stakeholder-ready PPTX report. | Python, Pandas, Matplotlib, Seaborn, Jupyter | Mar 2026 |
@@ -62,6 +66,7 @@
 
 | Project | Description | Stack | Date |
 |--------|-------------|-------|------|
+| [graph-fraud-mule-detection](https://github.com/farheenfathimaa/graph-fraud-mule-detection) | Graph-based fraud and mule-account detection on a synthetic transaction network (7,500 nodes, 55k+ transactions, 300 injected mule accounts) with a realistic fan-in/fan-out laundering pattern. Trains GCN and GAT models (PyTorch Geometric) on the transaction graph and benchmarks them against an XGBoost tabular baseline. Served via a FastAPI + Docker REST API, with EDA visualizations for fraud-ring structure, degree distribution, and class imbalance. | Python, PyTorch Geometric, GCN, GAT, XGBoost, FastAPI, Docker | Aug 2026 |
 | [rust-graphmind](https://github.com/farheenfathimaa/rust-graphmind) | Rust CLI + axum REST API for ingesting relational CSV data into Neo4j and querying it as a graph. Supports shortest-path traversal, degree centrality, and 1–2 hop relationship queries via Cypher. Batched idempotent ingestion (624 nodes, 1998 relationships). 4 integration tests via testcontainers spinning up a real Neo4j container. Fully Dockerized with docker-compose. | Rust, axum, Neo4j, Cypher, Docker | Aug 2026 |
 
 ---
@@ -76,13 +81,19 @@
 
 ## 🧰 Tech Stack
 
-**LLM & GenAI:** LangChain · OpenAI API · Anthropic Claude API · Groq · Gemini · FAISS · RAG · Prompt Engineering · HuggingFace Transformers · BERT
+**LLM & GenAI:** LangChain · LiteLLM · Google ADK 2.0 · MCP · OpenAI API · Anthropic Claude API · Groq · Gemini · AWS Bedrock · FAISS · RAG · Prompt Engineering · HuggingFace Transformers · BERT · OpenAI Whisper · LoRA/PEFT · LLaMA Factory · DPO · Sentence Transformers
 
-**ML/DL:** PyTorch · TensorFlow · Scikit-Learn · XGBoost · CNNs · Transfer Learning
+**ML / Deep Learning:** PyTorch · PyTorch Geometric (GCN, GAT) · TensorFlow · Scikit-Learn · XGBoost · LightGBM · CNNs · RNN/LSTM · YOLOv5 · ONNX Runtime · Transfer Learning · SHAP · Prophet · Statsmodels
 
-**Production & MLOps:** Docker · FastAPI · Kubernetes · ELK Stack · CI/CD (GitHub Actions) · Streamlit
+**Production & MLOps:** Docker · Kubernetes · FastAPI · MLflow · Terraform · GCP (Vertex AI, BigQuery, Kubeflow Pipelines) · AWS (ECS, RDS, S3, VPC, Bedrock) · CI/CD (GitHub Actions) · ELK Stack · Streamlit
 
-**Data & Tools:** Python · SQL · Pandas · NumPy · OpenCV · Git · Linux
+**Data & Backend Engineering:** Python · SQL · PySpark · Pandas · NumPy · Playwright · Neo4j (Cypher) · MySQL · PostgreSQL · GeoPandas · Folium · Plotly
+
+**Full-Stack & Systems:** Rust (axum) · Java (Spring Boot 3) · Node.js/Express · React · TypeScript
+
+**Analytics & BI:** Excel · Tableau · Power BI · DAX
+
+**Tools:** Git · Linux · OpenCV · Librosa
 
 ---
 
